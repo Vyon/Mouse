@@ -70,6 +70,12 @@ return {
 
 			user_input_service.InputChanged:Connect(function(input)
 				if (input.UserInputType == Enum.UserInputType.MouseMovement) then
+
+					-- Forgot to add this lol
+					if (typeof(self.TargetFilter) == 'Instance') then
+						params.FilterDescendantsInstances = self.TargetFilter:GetChildren()
+					end
+
 					-- Reuse Variables
 					position = input.Position
 					unit_ray = camera:ScreenPointToRay(position.X, position.Y)
